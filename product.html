@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Softech Solution | Products</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- ===== Notification Banner ===== -->
+  <div class="top-banner" id="topBanner">
+    🛒 Free delivery on all orders above $50!
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="logo">💻 Softech Solution</div>
+   
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="product.html" class="active">Products</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Main Products Section ===== -->
+  <section class="products">
+    <h1>Our Products</h1>
+    <p>Explore top-quality computers and hardware components at unbeatable prices.</p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/laptop1.jpg" alt="Laptop" />
+        <h3>HP Pavilion Laptop</h3>
+        <p>ksh.30000</p>
+        <button onclick="addToCart('HP EliteBook', 899)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/dell.webp" alt="Desktop" />
+        <h3>Dell OptiPlex Desktop</h3>
+        <p>ksh.58000</p>
+        <button onclick="addToCart('HP EliteBook', 899)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/keyboard1.jpeg" alt="Keyboard" />
+        <h3>Mechanical Keyboard</h3>
+        <p>ksh.12000</p>
+        <button onclick="addToCart('HP EliteBook', 899)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/wireless mouse.jpeg" alt="Mouse" />
+        <h3>Wireless Mouse</h3>
+        <p>ksh.4500</p>
+        <button onclick="addToCart('HP EliteBook', 899)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/samsang.webp" alt="Monitor" />
+        <h3>Samsung 24” Monitor</h3>
+        <p>ksh.10500</p>
+       <button onclick="addToCart('HP EliteBook', 899)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/hard drive.jpeg" alt="Hard Drive" />
+        <h3>Seagate 1TB Hard Drive</h3>
+        <p>ksh.6000</p>
+        <button onclick="addToCart('HP EliteBook', 899)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 Softech Solution | All rights reserved.</p>
+  </footer>
+</body>
+</html>

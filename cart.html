@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Softech Solution</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="cart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Your Shopping Cart</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+         <li><a href="cart.html">Cart</a></li>
+         <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart-section">
+    <h2>Items in Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="total"></p>
+    <button id="clear-cart">Clear Cart</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Softech Solution. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.getElementById("cart-items");
+    const total = document.getElementById("total");
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+      let totalAmount = 0;
+      cartItems.innerHTML = cart.map(item => {
+        totalAmount += item.price;
+        return `<p>${item.name} - $${item.price}</p>`;
+      }).join('');
+      total.textContent = `Total: $${totalAmount}`;
+    }
+
+    // Clear cart button
+    document.getElementById("clear-cart").addEventListener("click", () => {
+      localStorage.removeItem("cart");
+      location.reload();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Softech Solution</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- ===== Notification Banner ===== -->
+  <div class="top-banner" id="topBanner">
+    🛒 Free delivery on all orders above $50!
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="logo">💻 Softech Solution</div>
+     
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html" class="active">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Checkout Section ===== -->
+  <section class="checkout-page">
+    <h1>Checkout</h1>
+    <p>Review your order and enter your delivery information below.</p>
+
+    <div class="checkout-container">
+      <!-- Cart Summary -->
+      <div class="checkout-summary">
+  <h3>Order Summary</h3>
+  <div id="order-items"></div>
+  <p id="order-total"></p>
+</div>
+      </div>
+
+      <!-- Customer Info Form -->
+      <form id="checkoutForm">
+        <h2>Shipping Information</h2>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required />
+
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" rows="3" required></textarea>
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" required>
+          <option value="">Select</option>
+          <option value="credit">Credit Card</option>
+          <option value="mpesa">M-Pesa</option>
+          <option value="paypal">PayPal</option>
+        </select>
+
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 Softech Solution | All rights reserved.</p>
+  </footer>
+  <script>
+   // Load cart items from localStorage
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const orderItems = document.getElementById("order-items");
+const orderTotal = document.getElementById("order-total");
+let total = 0;
+
+if (cart.length === 0) {
+  orderItems.innerHTML = "<p>Your cart is empty.</p>";
+  orderTotal.textContent = "";
+} else {
+  orderItems.innerHTML = ""; // Clear previous content
+  cart.forEach(item => {
+    total += Number(item.price); // Ensure price is a number
+    orderItems.innerHTML += `<p>${item.name} - $${item.price}</p>`;
+  });
+  orderTotal.textContent = `Total: $${total}`;
+}
+
+  </script>
+</body>
+</html>
